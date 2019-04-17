@@ -17,8 +17,8 @@ RUN apt-get update \
  && apt-get update \
  && apt-get install -y docker-ce
 RUN mkdir -p /usr/local/src/spack/ \
- && wget -qO - https://github.com/spack/spack/archive/v0.11.2.tar.gz |tar xfz - -C /usr/local/src/spack/ --strip-component=1
-ENV PATH=${PATH}:/usr/local/src/spack/bin/ 
+ && wget -qO - https://github.com/spack/spack/archive/v0.12.1.tar.gz |tar xfz - -C /usr/local/src/spack/ --strip-component=1
+ENV PATH=${PATH}:/usr/local/src/spack/bin/
 CMD ["tail", "-f", "/dev/null"]
 RUN  echo "Download: $(/usr/local/bin/go-github rLatestUrl --ghorg qnib --ghrepo go-wharfie --regex 'go-wharfie_x86' --limit 1)" \
  && wget -qO /usr/local/bin/go-wharfie $(/usr/local/bin/go-github rLatestUrl --ghorg qnib --ghrepo go-wharfie --regex 'go-wharfie_x86' --limit 1) \
